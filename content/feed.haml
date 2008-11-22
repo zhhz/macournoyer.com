@@ -1,0 +1,29 @@
+---
+title:     Marc-Andre Cournoyer's Awesome Feed
+site:      http://macournoyer.com/
+author:    Marc-Andre Cournoyer's
+email:     macournoyer@gmail.com
+filename:  blog
+extension: xml
+layout:    nil
+dirty:     true
+filter:    haml
+---
+!!! XML
+%feed{:xmlns => "http://www.w3.org/2005/Atom"}
+ 
+  %title= @page.title
+  %link{:href => @page.url, :rel => "self"}/
+  %link{:href => @page.site}/
+  %updated= Time.now.xmlschema
+  %author
+    %name= @page.author
+    %email= @page.email
+  %id= @page.site
+  - articles_for_feed.each do |article|
+    %entry
+      %title= article.title
+      %link{:href => article.url}/
+      %id= "tag:macournoyer.com," + article.created_at.strftime('%Y-%m-%d') + ":" + article.created_at.to_i.to_s
+      %updated= article.created_at.xmlschema
+      %content{:type => "html"}= render(article)

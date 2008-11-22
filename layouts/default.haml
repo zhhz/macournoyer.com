@@ -1,0 +1,11 @@
+--- 
+extension: html
+filter:    haml
+--- 
+!!!
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
+    %meta{:name => "author", :content => "Marc-Andr&eacute; Cournoyer"}/
+    %title= @page.title
+  %body= @content
