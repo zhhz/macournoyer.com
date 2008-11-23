@@ -5,11 +5,24 @@ module Webby::Resources
   class Page < Resource
     def destination
       dest = super
-      if filename == "index" || extension != "html"
-        dest
-      else
+      if prettify?
         File.join File.dirname(dest), File.basename(dest, ".*"), "index.html"
+      else
+        dest
       end
     end
+    
+    def url
+      if prettify?
+        super.gsub(/index\.html$/, "")
+      else
+        super
+      end
+    end
+    
+    private
+      def prettify?
+        filename != "index" && extension == "html"
+      end
   end
 end
