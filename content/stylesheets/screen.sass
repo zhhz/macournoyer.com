@@ -5,10 +5,18 @@ layout:    nil
 --- 
 @import blueprint/screen.sass
 @import blueprint/modules/scaffolding.sass
+@import blueprint/modules/debug.sass
+@import blueprint/modules/fancy_type.sass
+@import blueprint/modules/typography.sass
 @import compass/reset.sass
 
 body
   +blueprint
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
   +blueprint-scaffolding
+  +blueprint-typography
+  +blueprint-grid
+  +fancy-type
+  
+  #container
+    +container
+    +showgrid(/images/grid.png)

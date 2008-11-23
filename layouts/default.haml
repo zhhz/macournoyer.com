@@ -15,4 +15,7 @@ filter:    haml
       %link{:rel => "stylesheet", :href => "/stylesheets/ie.css", :type => "text/css", :media => "screen, projection"}/
     %script{:type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"}/
     
-  %body!= @content
+  %body
+    %div#container
+      %h1 macournoyer.com
+      != @content
