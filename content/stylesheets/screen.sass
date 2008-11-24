@@ -16,7 +16,36 @@ body
   +blueprint-typography
   +blueprint-grid
   +fancy-type
+//  +showgrid(/images/grid.png)
+  
+  :font-size 200%
   
   #container
+//    :background-color #eee
     +container
-    +showgrid(/images/grid.png)
+    +column(15)
+    +last
+  
+  #logo
+    +column(6)
+    +prepend(1)
+    :margin 0
+    :font-size 440%
+    :line-height 0.4em
+    :letter-spacing -.1em
+    a
+      :text-decoration none
+      :color #222
+    span
+      :display block
+    span.part-1
+      :font-size 110%
+    span.part-3
+      :font-size 106%
+      :letter-spacing -.05em
+    span.com
+      :display inline
+      :letter-spacing 0em
+      :margin -1.3em
+      :font-size 18%
+      :color #900
