@@ -16,13 +16,23 @@ filter:    haml
     %script{:type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"}/
     
   %body
-    %h1#logo
-      %a{:href => "/"}
-        %span.part-1 ma
-        %span.part-2 cou
-        %span.part-3 rno
-        %span.part-4
-          yer
-          %span.com .com
-    %div#container
-      != @content
+    #root
+      %h1#logo
+        %a{:href => "/"}<
+          %span.part-1> ma
+          %span.part-2> cou
+          %span.part-3> rno
+          %span.part-4<
+            yer
+            %span.com> .com
+      #container!= @content
+      #root_footer
+    #footer
+      %a.logo{:href => "/"} macournoyer.com
+      %ul.menu
+        %li
+          %a{:href => "/blog"} blog
+        %li
+          %a{:href => "http://github.com/macournoyer"} projects
+        %li
+          %a{:href => "mailto:macournoyer@gmail.com"} email me

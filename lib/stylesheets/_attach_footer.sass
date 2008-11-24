@@ -1,0 +1,20 @@
+// Taken http://limpid.nl/lab/css/fixed/footer
+
+=attach_footer( !footer_height )
+  body
+    :margin 0
+    :padding 0 0 !footer_height 0
+  #footer
+    :position absolute
+    :bottom 0
+    :left 0
+    :width 100%
+    :height !footer_height
+  body > #footer
+    :position fixed
+  * html
+    body
+      :overflow hidden
+    #content
+      :height 100%
+      :overflow auto

@@ -9,43 +9,92 @@ layout:    nil
 @import blueprint/modules/fancy_type.sass
 @import blueprint/modules/typography.sass
 @import compass/reset.sass
+@import attach_footer.sass
+
++attach_footer( 54px )
 
 body
   +blueprint
-  +blueprint-scaffolding
   +blueprint-typography
   +blueprint-grid
-  +fancy-type
 //  +showgrid(/images/grid.png)
+  :font-size 180%
   
-  :font-size 200%
+  #root
+    +prepend(1)
+    :margin-top 30px
   
   #container
-//    :background-color #eee
     +container
-    +column(15)
-    +last
+    +column(15, true)
+    :margin-left 10px
+    :margin-top 32px
+    
+    p
+      :font-family Georgia
+      :margin-top 0
+      :margin-bottom 19px
+      :line-height 35px
+    
+    .ruby
+      :color #900
   
   #logo
-    +column(6)
-    +prepend(1)
+    +column(7)
+    
     :margin 0
-    :font-size 440%
-    :line-height 0.4em
+    :padding 0
+    :font-family "Lucida Grande", "Lucida Sans Unicode"
+    :font-size 460%
+    :font-weight bold
+    :line-height 0.6em
     :letter-spacing -.1em
     a
       :text-decoration none
-      :color #222
+      :color= !font_color
     span
       :display block
     span.part-1
       :font-size 110%
     span.part-3
       :font-size 106%
-      :letter-spacing -.05em
     span.com
       :display inline
       :letter-spacing 0em
-      :margin -1.3em
+      :margin -0.4em
       :font-size 18%
       :color #900
+  
+  #footer
+    +prepend(1)
+    :background-color #222
+    :color #eee
+    :border-top solid 1px #ccc
+    
+    a.logo
+      +alt
+      :text-decoration none
+      +prepend(1)
+      +column(6)
+    
+    .menu
+      +column(10)
+      +alt
+      :display inline
+  
+  ul.menu
+    :list-style none
+    :margin 0
+    :padding 0
+    li
+      :display inline
+      :margin-right 30px
+      a
+        :background-color #222
+        :color #eee
+        :text-decoration none
+        &:hover
+          :color #fff
+  
+  .amp
+    +alt
