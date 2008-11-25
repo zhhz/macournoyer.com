@@ -1,0 +1,12 @@
+---
+title:  blog
+filter: haml
+dirty:  true
+---
+- each_main_page_posts do |page|
+  %div.article
+    %div.date
+      %span.day= page.created_at.strftime('%d')
+      %span.month= page.created_at.strftime('%b')
+    %h1!= link_to_page(page)
+    %div.body!= render(page)
