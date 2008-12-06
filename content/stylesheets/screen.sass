@@ -28,13 +28,15 @@ body
     +container
     +column(15, true)
     :margin-left 10px
-    :margin-top 13px
+    :margin-top 4px
+    :overflow hidden
     
     p
+      :font-size 154%
       :font-family Georgia
       :margin-top 0
-      :margin-bottom 19px
-      :line-height 1.25em
+      :margin-bottom 0
+      :line-height 1.1em
     
     .ruby
       :color #900
@@ -59,23 +61,27 @@ body
         :margin-bottom .1em
       
       .date
-        :background-color #333
         :color #eee
         :font-size 50%
-        :-moz-border-radius .5em
-        :-webkit-border-radius .5em
-        +column(1.2)
+        :background url(/images/stamp.gif) no-repeat
+        +column(2)
+        :height 57px
+        :width 57px
+        :position relative
+        :top -2px
+        :padding 3px 1px
         :text-align center
-        :margin-top 4px
-        :padding 0 1px
         .day
           :color #777
           :font-size 180%
+          :font-family Georgia
         .month
           +caps
+          :font-size 80%
           :color #555
           :position relative
-          :top -6px
+          :display block
+          :top -3px
     
   
   #logo
@@ -130,7 +136,7 @@ body
       :margin-right 30px
       a
         :background-color #222
-        :color #eee
+        :color #ccc
         :text-decoration none
         &:hover
           :color #fff

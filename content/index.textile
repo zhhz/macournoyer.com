@@ -2,7 +2,7 @@
 title:  macournoyer.com
 filter: textile
 ---
-I'm *Marc-Andr&eacute; Cournoyer*,<br/>a father <span class="amp">&</span> programmer from "Montr&eacute;al, QC":http://maps.google.com/maps?f=q&hl=en&geocode=&q=montreal,+QC,+Canada&sll=37.0625,-95.677068&sspn=38.22949,54.84375&ie=UTF8&z=10&g=montreal,+QC,+Canada&iwloc=addr.
+I'm *Marc-Andr&eacute; Cournoyer*, a father <span class="amp">&</span> coder from "Montr&eacute;al, QC":http://maps.google.com/maps?f=q&hl=en&geocode=&q=montreal,+QC,+Canada&sll=37.0625,-95.677068&sspn=38.22949,54.84375&ie=UTF8&z=10&g=montreal,+QC,+Canada&iwloc=addr.
 
 I coded "Thin":http://code.macournoyer.com/thin/, "RefactorMyCode.com":http://refactormycode.com/ <span class="amp">&</span> "other stuff":http://github.com/macournoyer, mostly in %(ruby)Ruby%.
 
