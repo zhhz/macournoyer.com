@@ -17,14 +17,14 @@ filter:    haml
     
   %body
     #root
-      %h1#logo
-        %a{:href => "/"}<
-          %span.part-1> ma
-          %span.part-2> cou
-          %span.part-3> rno
-          %span.part-4<
-            yer
+      #side
+        %h1#logo
+          %a{:href => "/"}<
+            - "macournoyer".split("").each_with_index do |letter, index|
+              %span{:class => "letter-#{index}"}>= letter
             %span.com> .com
+        #about!= render :partial => "/about"
+          
       #container!= @content
       #root_footer
     #footer
