@@ -18,7 +18,8 @@ body
   +blueprint-typography
   +blueprint-grid
 //  +showgrid(/images/grid.png)
-  :font-size 100%
+  :font-size 16px
+  :font-family Georgia
   
   #root
     +prepend(1)
@@ -26,65 +27,78 @@ body
   
   #container
     +container
-    +column(15, true)
+    +column(18, true)
     :margin-left 10px
-    :margin-top 4px
     :overflow hidden
-    
-    p
-      :font-family Georgia
     
     .article
       h1
+        +alt
         :margin-top 15px
         :margin-bottom 30px
         :padding-top 0
-        :font-size 200%
+        :font-size 54px
         :font-weight bold
-        :letter-spacing -.07em
+        :letter-spacing -.05em
         +prepend(1)
         a
+          :color = !font_color
           :text-decoration none
+          &:hover
+            :color = !link_hover_color
+      
+      h2, h3
+        +alt
+        :color= !font_color
+        :font-weight bold
+        :letter-spacing -.05em
+        :padding-top 7px
+        :margin-bottom 17px
+      
+      p
+        :font-size 13px
+        :line-height 18px
+        :margin-bottom 18px
       
       .date
-        :color #eee
         :background url(/images/stamp.gif) no-repeat
         +column(2)
         :height 57px
         :width 57px
-        :position relative
-        :top -12px
         :padding 0px 1px
         :text-align center
         .day
-          :color #777
+          :color #eee
           :font-size 180%
           :font-family Georgia
         .month
           +caps
           :font-size 80%
-          :color #555
+          :color #ccc
           :position relative
           :display block
           :top -3px
     
   
   #side
-    +column(7)
+    +column(5)
+    :margin-top 10px
+    
+    div
+      +span(4)
     
     #logo
       :margin 0
       :padding 0
       :font-family "times new roman"
       :height 1.7em
-      +span(6)
       a
         :text-decoration none
         :color= !font_color
         &:hover
-          :color #666
+          :color = !link_hover_color
           span
-            :color #666
+            :color = !link_hover_color
       span
         :padding 0
         :margin 0
@@ -98,14 +112,14 @@ body
       // a
       span.letter-1
         :font-size 50px
-        :left 42px
-        :margin-top 6px
-      // c
-      span.letter-2
-        :font-size 50px
         :font-weight bold
         :left 60px
         :margin-top -14px
+      // c
+      span.letter-2
+        :font-size 50px
+        :left 42px
+        :margin-top 6px
       // o
       span.letter-3
         :font-size 86px
@@ -115,8 +129,8 @@ body
       span.letter-4
         :font-size 34px
         :font-style italic
-        :left 83px
-        :margin-top -6px
+        :left 84px
+        :margin-top -9px
       // r
       span.letter-5
         :font-size 26px
@@ -162,9 +176,11 @@ body
         :margin-top 34px
         :color #900
     #about
-      +span(6)
-      :font-size 70%
-      :margin-top 1em
+      :font-size 11px
+      :margin-top 8px
+      p
+        :margin-bottom 18px
+        :line-height 18px
   
   #footer
     +prepend(1)
@@ -176,7 +192,7 @@ body
       +alt
       :text-decoration none
       +prepend(1)
-      +column(6)
+      +column(5)
     
     .menu
       +column(10)
