@@ -86,16 +86,12 @@ body#default
       p
         :margin-bottom 18px
         :line-height 18px
-  #footer
-    .menu
-      :margin-left 10px
   
   #container
     +container
     +column(18, true)
-    :margin-left 10px
     :overflow hidden
-    
+
     .article
       h1
         +alt
@@ -124,13 +120,22 @@ body#default
         :font-size 13px
         :line-height 18px
         :margin-bottom 18px
-    
+      
+      .meta
+        +prepend(2)
+        :position absolute
+        :margin-top -34px
+        :font-size 11px
+        
       .date
-        :background url(/images/stamp.gif) no-repeat
         +column(2)
+        :background url(/images/stamp.gif) no-repeat
         :height 57px
         :width 57px
         :padding 0px 1px
+        :margin
+          :left 5px
+          :right 15px
         :text-align center
         .day
           :color #eee

@@ -8,4 +8,6 @@ dirty:  true
       %span.day= page.created_at.strftime('%d')
       %span.month= page.created_at.strftime('%b')
     %h1!= link_to_page(page)
-    %div.body!= render(page)
+    .meta
+      %a.comments{:href => page.url + "#disqus_thread" }
+    .body!= render(page)

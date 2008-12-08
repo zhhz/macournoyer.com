@@ -37,6 +37,14 @@ filter:    haml
               %span.month= @page.created_at.strftime('%b')
             %h1!= @page.title
             != @content
+            
+            %div#disqus_thread
+            %script{:type => "text/javascript", :src => "http://disqus.com/forums/macournoyer/embed.js"}
+            %noscript
+              %a{:href => "http://macournoyer.disqus.com/?url=ref"} View the discussion thread.
+            %a.dsq-brlink{:href => "http://disqus.com"}
+              blog comments powered by
+              %span.logo-disqus Disqus
         - else
           != @content
       #root_footer
@@ -49,3 +57,16 @@ filter:    haml
           %a{:href => "http://github.com/macournoyer"} projects
         %li
           %a{:href => "mailto:macournoyer@gmail.com"} email me
+    
+    :javascript
+      (function() {
+      		var links = document.getElementsByTagName('a');
+      		var query = '?';
+      		for(var i = 0; i < links.length; i++) {
+      			if(links[i].href.indexOf('#disqus_thread') >= 0) {
+      				query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      			}
+      		}
+      		document.write('<script type="text/javascript" src="http://disqus.com/forums/macournoyer/get_num_replies.js' + query + '"></' + 'script>');
+      	})();
+      
