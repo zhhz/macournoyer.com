@@ -4,3 +4,7 @@ task :default => :build
 
 desc 'deploy the site to the webserver'
 task :deploy => [:build, 'deploy:rsync']
+
+SITE.user = "macournoyer"
+SITE.host = "macournoyer.com"
+SITE.remote_dir = "~/macournoyer.com"
