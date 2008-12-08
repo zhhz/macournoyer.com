@@ -21,9 +21,74 @@ body
   :font-size 16px
   :font-family Georgia
   
+#root
+  +prepend(1)
+  :margin-top 30px
+  
+#footer
+  +prepend(1)
+  :background-color #222
+  :color #eee
+  :border-top solid 1px #777
+
+  a.logo
+    +alt
+    +column(5)
+    :text-decoration none
+
+  .menu
+    +column(10)
+    +alt
+    :display inline
+    
+    a
+      :background-color #222
+      :color #ccc
+      :text-decoration none
+      &:hover
+        :color #fff
+
+body#home
   #root
-    +prepend(1)
-    :margin-top 30px
+    +prepend(4)
+    :margin-top 126px
+  
+  #logo
+    +column(5)
+  
+  #about
+    +column(18, true)
+    +span(10)
+    :font-size 13px
+    :margin-top 4px
+    p
+      :margin-bottom 18px
+      :line-height 18px
+  
+  #footer
+    :height 300px
+    
+    .menu
+      +prepend(8)
+      :font-size 26px
+
+body#default
+  #side
+    +column(5)
+    :margin-top 10px
+
+    div
+      +span(4)
+
+    #about
+      :font-size 11px
+      :margin-top 8px
+      p
+        :margin-bottom 18px
+        :line-height 18px
+  #footer
+    .menu
+      :margin-left 10px
   
   #container
     +container
@@ -46,7 +111,7 @@ body
           :text-decoration none
           &:hover
             :color = !link_hover_color
-      
+    
       h2, h3
         +alt
         :color= !font_color
@@ -54,12 +119,12 @@ body
         :letter-spacing -.05em
         :padding-top 7px
         :margin-bottom 17px
-      
+    
       p
         :font-size 13px
         :line-height 18px
         :margin-bottom 18px
-      
+    
       .date
         :background url(/images/stamp.gif) no-repeat
         +column(2)
@@ -78,144 +143,111 @@ body
           :position relative
           :display block
           :top -3px
-    
   
-  #side
-    +column(5)
-    :margin-top 10px
-    
-    div
-      +span(4)
-    
-    #logo
-      :margin 0
-      :padding 0
-      :font-family "times new roman"
-      :height 1.7em
-      a
-        :text-decoration none
-        :color= !font_color
-        &:hover
-          :color = !link_hover_color
-          span
-            :color = !link_hover_color
+#logo
+  :margin 0
+  :padding 0
+  :font-family "times new roman"
+  :height 1.7em
+  a
+    :text-decoration none
+    :color= !font_color
+    &:hover
+      :color = !link_hover_color
       span
-        :padding 0
-        :margin 0
-        :position absolute
-      // m
-      span.letter-0
-        :font-size 24px
-        :font-weight bold
-        :font-style italic
-        :left 40px
-      // a
-      span.letter-1
-        :font-size 50px
-        :font-weight bold
-        :left 60px
-        :margin-top -14px
-      // c
-      span.letter-2
-        :font-size 50px
-        :left 42px
-        :margin-top 6px
-      // o
-      span.letter-3
-        :font-size 86px
-        :left 64px
-        :margin-top -2px
-      // u
-      span.letter-4
-        :font-size 34px
-        :font-style italic
-        :left 84px
-        :margin-top -9px
-      // r
-      span.letter-5
-        :font-size 26px
-        :font-style italic
-        :font-weight bold
-        :left 99px
-        :margin-top 10px
-      // n
-      span.letter-6
-        :font-size 22px
-        :font-style italic
-        :font-weight bold
-        :left 106px
-        :margin-top 24px
-      // o
-      span.letter-7
-        :font-size 34px
-        :font-style italic
-        :left 106px
-        :margin-top 34px
-      // y
-      span.letter-8
-        :font-size 118px
-        :left 100px
-        :margin-top -46px
-      // e
-      span.letter-9
-        :font-size 36px
-        :font-weight bold
-        :left 154px
-        :margin-top -6px
-      // r
-      span.letter-10
-        :font-size 44px
-        :left 170px
-        :margin-top -12px
-        :font-style italic
-        :font-variant small-caps
-      span.com
-        +caps
-        :font-size 18px
-        :left 146px
-        :margin-top 34px
-        :color #900
-    #about
-      :font-size 11px
-      :margin-top 8px
-      p
-        :margin-bottom 18px
-        :line-height 18px
-  
-  #footer
-    +prepend(1)
-    :background-color #222
-    :color #eee
-    :border-top solid 1px #777
-    
-    a.logo
-      +alt
-      :text-decoration none
-      +prepend(1)
-      +column(5)
-    
-    .menu
-      +column(10)
-      +alt
-      :display inline
-  
-  ul.menu
-    :list-style none
-    :margin 0
+        :color = !link_hover_color
+  div
+    :height 1.7em
+    :position absolute
+
+  span
     :padding 0
-    li
-      :display inline
-      :margin-right 30px
-      a
-        :background-color #222
-        :color #ccc
-        :text-decoration none
-        &:hover
-          :color #fff
-  
-  .ruby
+    :margin 0
+    :position absolute
+  // m
+  span.letter-0
+    :font-size 24px
+    :font-weight bold
+    :font-style italic
+  // a
+  span.letter-1
+    :font-size 50px
+    :font-weight bold
+    :left 20px
+    :margin-top -14px
+  // c
+  span.letter-2
+    :font-size 50px
+    :left 2px
+    :margin-top 6px
+  // o
+  span.letter-3
+    :font-size 86px
+    :left 24px
+    :margin-top -2px
+  // u
+  span.letter-4
+    :font-size 34px
+    :font-style italic
+    :left 44px
+    :margin-top -9px
+  // r
+  span.letter-5
+    :font-size 26px
+    :font-style italic
+    :font-weight bold
+    :left 59px
+    :margin-top 10px
+  // n
+  span.letter-6
+    :font-size 22px
+    :font-style italic
+    :font-weight bold
+    :left 66px
+    :margin-top 24px
+  // o
+  span.letter-7
+    :font-size 34px
+    :font-style italic
+    :left 66px
+    :margin-top 34px
+  // y
+  span.letter-8
+    :font-size 118px
+    :left 60px
+    :margin-top -46px
+  // e
+  span.letter-9
+    :font-size 36px
+    :font-weight bold
+    :left 114px
+    :margin-top -6px
+  // r
+  span.letter-10
+    :font-size 44px
+    :left 130px
+    :margin-top -12px
+    :font-style italic
+    :font-variant small-caps
+  span.com
+    +caps
+    :font-size 18px
+    :left 106px
+    :margin-top 34px
     :color #900
 
-  .amp
-    +alt
-  
+
+ul.menu
+  :list-style none
+  :margin 0
+  :padding 0
+  li
+    :display inline
+    :margin-right 30px
+
+.ruby
+  :color #900
+
+.amp
+  +alt
+

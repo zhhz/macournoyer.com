@@ -1,12 +1,15 @@
 ---
-title:  blog
+title:  ohaie, I'm M-A Cournoyer
 filter: haml
 dirty:  true
+layout: home
 ---
-- each_main_page_posts do |page|
-  %div.article
-    %div.date
-      %span.day= page.created_at.strftime('%d')
-      %span.month= page.created_at.strftime('%b')
-    %h1!= link_to_page(page)
-    %div.body!= render(page)
+
+%h1#logo
+  %div
+    %a{:href => "/"}<
+      - "macournoyer".split("").each_with_index do |letter, index|
+        %span{:class => "letter-#{index}"}>= letter
+      %span.com> .com
+
+#about!= render :partial => "/about"
