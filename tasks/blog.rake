@@ -36,7 +36,7 @@ namespace :blog do
     dir = File.join(dir, year)
 
     # determine the filename and template name
-    fn = File.join(dir, 'index.txt')
+    fn = File.join(dir, 'index.erb')
     tmpl = Dir.glob(File.join(Webby.site.template_dir, 'blog/year.*')).first.to_s
 
     if test(?f, tmpl) and not test(?f, File.join(Webby.site.content_dir, fn))
@@ -58,7 +58,7 @@ namespace :blog do
     dir = File.join(dir, now.strftime('%Y/%m'))
 
     # determine the filename and template name
-    fn = File.join(dir, 'index.html')
+    fn = File.join(dir, 'index.erb')
     tmpl = Dir.glob(File.join(Webby.site.template_dir, 'blog/month.*')).first.to_s
 
     if test(?f, tmpl) and not test(?f, File.join(Webby.site.content_dir, fn))

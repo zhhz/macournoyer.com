@@ -1,6 +1,6 @@
 --- 
 title:      New Site
-created_at: 2008-11-23 00:44:49.518530 -05:00
+created_at: 2008-12-08 22:27:10.423898 -05:00
 blog_post:  true
 filter:
   - erb
@@ -12,9 +12,15 @@ h3. Litora Sociis
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi et risus. Aliquam nisl. Nulla facilisi. Cras accumsan vestibulum ante. Vestibulum sed tortor. Praesent tempus fringilla elit. Ut elit diam, sagittis in, nonummy in, gravida non, nunc. Ut orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam egestas, orci eu imperdiet malesuada, nisl purus fringilla odio, quis commodo est orci vitae justo. Aliquam placerat odio tincidunt nulla. Cras in libero. Aenean rutrum, magna non tristique posuere, erat odio eleifend nisl, non convallis est tortor blandit ligula. Nulla id augue.
 
-<% code "ruby" do -%>
-def ohaie
-  puts "yeah!"
+<% code "ruby" do %>
+class Greeter
+  def ohaie
+    puts "ok"
+  end
+  private
+    def nice!
+      123_343
+    end
 end
 <% end %>
 
