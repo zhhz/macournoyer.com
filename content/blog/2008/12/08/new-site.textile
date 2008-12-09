@@ -6,22 +6,74 @@ filter:
   - erb
   - textile
 --- 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc congue ipsum vestibulum libero. Aenean vitae justo. Nam eget tellus. Etiam convallis, est eu lobortis mattis, lectus tellus tempus felis, a ultricies erat ipsum at metus.
+I was getting tired of my "old blog":http://macournoyer.wordpress.com and wanted to play with CSS and code a lil' bit. So here's the result. I must say, I'm pretty happy with the result. 3 new tools, I've never (heavily) used before, helped me with that.
 
-h3. Litora Sociis
+h3. Webby
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi et risus. Aliquam nisl. Nulla facilisi. Cras accumsan vestibulum ante. Vestibulum sed tortor. Praesent tempus fringilla elit. Ut elit diam, sagittis in, nonummy in, gravida non, nunc. Ut orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam egestas, orci eu imperdiet malesuada, nisl purus fringilla odio, quis commodo est orci vitae justo. Aliquam placerat odio tincidunt nulla. Cras in libero. Aenean rutrum, magna non tristique posuere, erat odio eleifend nisl, non convallis est tortor blandit ligula. Nulla id augue.
+First, "Webby":http://webby.rubyforge.org/, a static site generator. I'm pretty sure blog engines like Typo, Mephisto and the like are gonna disappear pretty quickly from the blogosphere in favour of static sites. Any good blog engine caches all pages, which ends up being a static website generator. You just don't need a dynamic app for your blog. Except for the comments, but now there's "Disqus":http://disqus.com and "IntenseDebate":http://www.intensedebate.com/.
+
+The only annoying thing about Webby is that I didn't want my URLs to end with @.html@. But, that was pretty easy to patch.
 
 <% code "ruby" do %>
-class Greeter
-  def ohaie
-    puts "ok"
-  end
-  private
-    def nice!
-      123_343
+# Monkey pach Webby to have nicer URLs.
+# Generate each html pages in a <page_name>/index.html file.
+# So the URL will look like /<page_name>
+module Webby::Resources
+  class Page < Resource
+    def destination
+      dest = super
+      if prettify?
+        File.join(File.dirname(dest),
+                  File.basename(dest, ".*"),
+                  "index.html")
+      else
+        dest
+      end
     end
+    
+    def url
+      if prettify?
+        super.gsub(/index\.html$/, "")
+      else
+        super
+      end
+    end
+    
+    private
+      def prettify?
+        filename != "index" && extension == "html"
+      end
+  end
 end
 <% end %>
 
-Vivamus euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vel nibh ut turpis dictum sagittis. Aliquam vel velit a elit auctor sollicitudin. Nam vel dui vel neque lacinia pretium. Quisque nunc erat, venenatis id, volutpat ut, scelerisque sed, diam. Mauris ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec mattis. Morbi dignissim sollicitudin libero. Nulla lorem.
+h3. Compass
+
+I also wanted to give a second try to Haml and Sass and found "Compass":http://github.com/chriseppstein/compass in the process. It's Blueprint CSS without the copy-pasting. Sass makes it easy to reuse some chunks of code, like this one, that makes the footer stick to the bottom.
+
+<% code "css" do %>
+=attach_footer( !footer_height )
+  body
+    :margin 0
+    :padding 0 0 !footer_height 0
+  #footer
+    :position absolute
+    :bottom 0
+    :left 0
+    :width 100%
+    :height !footer_height
+  body > #footer
+    :position fixed
+  * html
+    body
+      :overflow hidden
+    #content
+      :height 100%
+      :overflow auto
+<% end %>
+
+I also took the time to <a href="javascript:void(0)" onclick="$('body').toggleClass('showgrid')">align everything to the grid</a>.
+
+Finally, I should mentioned that my logo was heavily inspired by "Jon Tan's":http://jontangerine.com. I found the idea to make it all with CSS so awesome, I had to (try to) copy it!
+
+Let me know what you think of my new design/site!

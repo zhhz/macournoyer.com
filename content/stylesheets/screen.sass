@@ -20,6 +20,9 @@ body
 //  +showgrid(/images/grid.png)
   :font-size 16px
   :font-family Georgia
+
+body.showgrid
+  +showgrid(/images/grid.png)
   
 #root
   +prepend(1)
@@ -62,6 +65,7 @@ body#home
     +span(10)
     :font-size 13px
     :margin-top 4px
+    :padding-bottom 300px
     p
       :margin-bottom 18px
       :line-height 18px
@@ -88,10 +92,14 @@ body#default
         :margin-bottom 18px
         :line-height 18px
   
+  #footer
+    :height 24px
+  
   #container
     +container
     +column(18, true)
     :overflow hidden
+    :padding-bottom 26px
 
     .article
       h1
@@ -131,6 +139,7 @@ body#default
           :bottom 17px
         :border solid 1px #777
         :line-height 27px
+        :overflow auto
       
       .meta
         +prepend(2)
