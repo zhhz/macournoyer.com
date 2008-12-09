@@ -6,7 +6,7 @@ filter:
   - erb
   - textile
 --- 
-I was getting tired of my "old blog":http://macournoyer.wordpress.com and wanted to play with CSS and code a lil' bit. So here's the result. I must say, I'm pretty happy with the result. 3 new tools, I've never (heavily) used before, helped me with that.
+I was getting tired of my "old blog":http://macournoyer.wordpress.com and wanted to play with CSS and code a lil' bit. So here's the result. I must say, I'm pretty happy with the result. 3 new tools, I've never (heavily) used before, helped me with that. The code is "here":http://github.com/macournoyer/macournoyer.com.
 
 h3. Webby
 
@@ -14,8 +14,8 @@ First, "Webby":http://webby.rubyforge.org/, a static site generator. I'm pretty 
 
 The only annoying thing about Webby is that I didn't want my URLs to end with @.html@. But, that was pretty easy to patch.
 
-<% code "ruby" do %>
-# Monkey pach Webby to have nicer URLs.
+<% code "ruby" do -%>
+# Monkey patch Webby to have nicer URLs.
 # Generate each html pages in a <page_name>/index.html file.
 # So the URL will look like /<page_name>
 module Webby::Resources
@@ -45,13 +45,13 @@ module Webby::Resources
       end
   end
 end
-<% end %>
+<%- end %>
 
 h3. Compass
 
 I also wanted to give a second try to Haml and Sass and found "Compass":http://github.com/chriseppstein/compass in the process. It's Blueprint CSS without the copy-pasting. Sass makes it easy to reuse some chunks of code, like this one, that makes the footer stick to the bottom.
 
-<% code "css" do %>
+<% code "css" do -%>
 =attach_footer( !footer_height )
   body
     :margin 0
@@ -70,9 +70,9 @@ I also wanted to give a second try to Haml and Sass and found "Compass":http://g
     #content
       :height 100%
       :overflow auto
-<% end %>
+<%- end %>
 
-I also took the time to <a href="javascript:void(0)" onclick="$('body').toggleClass('showgrid')">align everything to the grid</a>.
+I also took the time to <a href="javascript:void(0)" onclick="$('body').toggleClass('showgrid')">align everything to the grid</a>, that was pretty hard for me.
 
 Finally, I should mentioned that my logo was heavily inspired by "Jon Tan's":http://jontangerine.com. I found the idea to make it all with CSS so awesome, I had to (try to) copy it!
 

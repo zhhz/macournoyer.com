@@ -1,4 +1,4 @@
-# Monkey pach Webby to have nicer URLs.
+# Monkey patch Webby to have nicer URLs.
 # Generate each html pages in a <page_name>/index.html file.
 # So the URL will look like /<page_name>
 module Webby::Resources
