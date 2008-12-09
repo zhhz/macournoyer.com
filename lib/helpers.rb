@@ -12,3 +12,7 @@ def each_main_page_posts(&block)
   articles.delete(@page)
   paginate(articles, 10, &block)
 end
+
+def code(lang, &block)
+  uv(:lang => lang, &block)
+end

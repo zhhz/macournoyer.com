@@ -10,4 +10,4 @@ dirty:  true
     %h1!= link_to_page(page)
     .meta
       %a.comments{:href => page.url + "#disqus_thread" }
-    .body!= render(page)
+    .body!= preserve(render(page))

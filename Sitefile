@@ -8,3 +8,5 @@ task :deploy => [:build, 'deploy:rsync']
 SITE.user = "macournoyer"
 SITE.host = "macournoyer.com"
 SITE.remote_dir = "~/macournoyer.com"
+
+SITE.uv[:theme] = "twilight"

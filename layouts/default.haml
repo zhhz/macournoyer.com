@@ -16,6 +16,8 @@ filter:    haml
     %link{:rel => "stylesheet", :href => "/stylesheets/print.css", :type => "text/css", :media => "print"}/
     /[if IE]
       %link{:rel => "stylesheet", :href => "/stylesheets/ie.css", :type => "text/css", :media => "screen, projection"}/
+    %link{:rel => "stylesheet", :href => "/stylesheets/code.css", :type => "text/css", :media => "screen, projection"}/
+    
     %link{:rel => "alternate", :type => "application/atom+xml", :title => "Atom Feed", :href => "/blog.xml"}/
     
   %body#default
@@ -36,7 +38,7 @@ filter:    haml
               %span.day= @page.created_at.strftime('%d')
               %span.month= @page.created_at.strftime('%b')
             %h1!= @page.title
-            != @content
+            != preserve(@content)
             
             %div#disqus_thread
             %script{:type => "text/javascript", :src => "http://disqus.com/forums/macournoyer/embed.js"}
